@@ -1,0 +1,46 @@
+.exam-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.exam-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.exam-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.exam-table th,
+.exam-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.exam-table th {
+  background-color: #f2f2f2;
+}
+
+.exam-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.action-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.action-btn:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,45 @@
+.session-page {
+  padding: 20px;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.session-form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.session-form button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.session-form button:hover {
+  background-color: #c9302c;
+}
+
+.session-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.session-table th,
+.session-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.session-table th {
+  background-color: #f2f2f2;
+}

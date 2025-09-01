@@ -1,0 +1,51 @@
+.exam-page {
+  padding: 20px;
+ 
+}
+
+.exam-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.exam-form label {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.exam-form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.exam-form button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.exam-form button:hover {
+  background-color: #c9302c;
+}
+
+.exam-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.exam-table th,
+.exam-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.exam-table th {
+  background-color: #f2f2f2;
+}
