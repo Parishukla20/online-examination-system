@@ -6,7 +6,10 @@ const app=express();  //express function start
 
 app.use(cors()); //ye data ko backend aur frontend me aane jaane deta hai
 app.use(express.json());
-const URL = 'mongodb://localhost:27017/exam'// mongodb me connection stablish ker rha hai aur 'exam_prep' name ka backend me database bna rha hai
+// const URL = 'mongodb://localhost:27017/exam'
+// mongodb me connection stablish ker rha hai aur 'exam_prep' name ka backend me database bna rha hai
+const URL = process.env.MONGO_URI;
+
 mongoose.connect(URL)
     .then(()=>{  //ye is liye hai ki future me connect hoga to print krega 
         console.log("MongoDb is connected")
