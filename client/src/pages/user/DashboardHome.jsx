@@ -8,7 +8,7 @@ const DashBoardHome = () => {
     const fetchProgress = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/exams/progress/68a6ac92c84dc263f16d37a4"
+          "http://localhost:5000/api/exams/progress/69b671fdc9ed16381190033c"
         );
         const data = await res.json();
         setProgress(data);

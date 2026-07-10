@@ -24,7 +24,7 @@ export default function AdminDashboard({ children }) {
           <a href="/userdashboard/myexams">My Exam</a>
           <a href="/userdashboard/myresult">My results</a>
           <a href="/userdashboard/changepassword">Change Password</a>
-          <a href="/login" onClick={() => { { handlelogout() } }}>Log out</a>
+          <a href="/" onClick={() => { { handlelogout() } }}>Log out</a>
           <a href="/userdashboard/message">Message</a>
         </nav>
       </aside>

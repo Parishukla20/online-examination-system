@@ -84,7 +84,7 @@ const AdminChangePassword = () => {
             placeholder="New password"
           />
         </div>
-3
+
         <div className="mb-4">
           <label className="form-label fw-semibold">Confirm new password</label>
           <input 
