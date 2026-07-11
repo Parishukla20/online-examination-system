@@ -12,7 +12,8 @@ const Message = () => {
   const fetchUserMessages = async () => {
     if (!userId) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/message/user/${userId}`);
+      // const res = await axios.get(`http://localhost:5000/api/message/user/${userId}`);    ye local sys ke liye link
+      const res = await axios.get(`https://online-examination-system-2-q8o7.onrender.com/api/message/user/${userId}`);
       setMessages(res.data.message || []);
     } catch (err) {
       console.error('Error fetching user messages:', err);
@@ -24,8 +25,8 @@ const Message = () => {
   const sendMessage = async (e) => {
     e.preventDefault();
     if (!question.trim()) return alert('Enter a message');
-    try {
-      await axios.post('http://localhost:5000/api/message', { question, examineeId: userId });
+    try { 
+      await axios.post('https://online-examination-system-2-q8o7.onrender.com/api/message', { question, examineeId: userId });  //ye link change hai 
       setQuestion('');
       fetchUserMessages();
     } catch (err) {
@@ -37,7 +38,7 @@ const Message = () => {
     const newText = prompt('Edit your message:', currentText);
     if (newText === null) return;
     try {
-      await axios.put(`http://localhost:5000/api/message/edit/${id}`, {
+      await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/message/edit/${id}`, {      //ye link change hai 
         question: newText,
         role: 'user',
         userId
@@ -51,7 +52,7 @@ const Message = () => {
   const deleteByUser = async (id) => {
     if (!window.confirm('Delete this message?')) return;
     try {
-      await axios.put(`http://localhost:5000/api/message/delete/${id}`, {
+      await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/message/delete/${id}`, {      //ye link change hai 
         role: 'user',
         userId
       });

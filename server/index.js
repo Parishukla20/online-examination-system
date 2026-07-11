@@ -1,6 +1,6 @@
 const express = require('express');  // it work like a waiter
 const cors= require('cors');         //data can be fetched from backend to frontend and vice_versa
-const mongoose=require('mongoose');// ” It is specifically used to connect and interact with MongoDB database.
+const mongoose=require('mongoose');  // It is specifically used to connect and interact with MongoDB database.
 const app=express();  //express function start
 require("dotenv").config();
 
@@ -9,7 +9,7 @@ app.use(cors()); //ye data ko backend aur frontend me aane jaane deta hai
 app.use(express.json());
 
 const URL = process.env.MONGO_URI;
-//console.log("server updated version2");
+
 mongoose.connect(URL)
     .then(()=>{  //ye is liye hai ki future me connect hoga to print krega 
         console.log("MongoDb is connected")
@@ -18,8 +18,6 @@ mongoose.connect(URL)
         console.log(er)
     })
 
-    // console.log("Mongo URL:", process.env.MONGO_URI);
-    // console.log("DB Name:", mongoose.connection.name);
 
 //api started
 app.use('/api/admin',require('./routes/adminRoute'))

@@ -20,7 +20,8 @@ const Registration = () => {
     const handleSubmit = async(e)=>{
         e.preventDefault();
     try{
-      const res = await axios.post('http://localhost:5000/api/examinee',form);
+      // const res = await axios.post('http://localhost:5000/api/examinee',form); ye local sys ke liye link
+      const res = await axios.post('https://online-examination-system-2-q8o7.onrender.com/api/examinee',form);
         alert("Resgistered Successfully")
         // window.location.href='/'
         console.log(res.data);
@@ -33,7 +34,7 @@ const Registration = () => {
     const [data,setData]= useState([])
     const handlefetch = async(e)=>{
       try{
-          const res= await axios.get('http://localhost:5000/api/session');
+          const res= await axios.get('https://online-examination-system-2-q8o7.onrender.com/api/session');   //ye link change hai
           setData(res.data)
       }
       catch(er){

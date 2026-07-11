@@ -5,7 +5,7 @@ const router = express.Router();
 const Message = require('../models/Message');
 const Examinee = require('../models/Examinee');
 
-// ✅ Create message (user)
+//  Create message (user)
 router.post('/', async (req, res) => {
   try {
     const { question, examineeId } = req.body;
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
 });
 
 
-// ✅ Get all messages (admin view)
+//  Get all messages (admin view)
 router.get('/all', async (req, res) => {
   try {
     const msgs = await Message.find()
@@ -40,7 +40,7 @@ router.get('/all', async (req, res) => {
   }
 });
 
-// ✅ Get messages for specific user
+//  Get messages for specific user
 router.get('/user/:id', async (req, res) => {
   try {
     const msgs = await Message.find({ examineeId: req.params.id })
@@ -53,7 +53,7 @@ router.get('/user/:id', async (req, res) => {
   }
 });
 
-// ✅ User edits their message
+//  User edits their message
 router.put('/edit/:id', async (req, res) => {
   try {
     const { question, role, userId } = req.body;
@@ -75,7 +75,7 @@ router.put('/edit/:id', async (req, res) => {
   }
 });
 
-// ✅ Admin replies or edits reply
+//  Admin replies or edits reply
 router.put('/reply/:id', async (req, res) => {
   try {
     const { answer, role } = req.body;
@@ -98,7 +98,7 @@ router.put('/reply/:id', async (req, res) => {
   }
 });
 
-// ✅ Soft delete by role
+//  Soft delete by role
 router.put('/delete/:id', async (req, res) => {
   try {
     const { role, userId } = req.body;

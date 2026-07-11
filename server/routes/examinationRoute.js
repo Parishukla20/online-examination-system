@@ -1,4 +1,3 @@
-
 const express = require('express')
 const router = express.Router();
 const Question = require('../models/QuestionBank');
@@ -366,8 +365,5 @@ router.get('/progress/:examineeId', async (req, res) => {
     res.status(500).json({ error: "Failed to fetch progress" });
   }
 });
-
-
-
 
 module.exports = router;

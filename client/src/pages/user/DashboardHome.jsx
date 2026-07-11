@@ -8,7 +8,8 @@ const DashBoardHome = () => {
     const fetchProgress = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/exams/progress/69b671fdc9ed16381190033c"
+          // "http://localhost:5000/api/exams/progress/69b671fdc9ed16381190033c"  local sys ke liye ye link
+          "https://online-examination-system-2-q8o7.onrender.com/api/exams/progress/69b671fdc9ed16381190033c"
         );
         const data = await res.json();
         setProgress(data);

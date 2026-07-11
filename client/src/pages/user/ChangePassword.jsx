@@ -16,7 +16,8 @@ const ChangePassword = () => {
         e.preventDefault();
         try
         {
-            const res = await axios.put(`http://localhost:5000/api/examinee/change/${id}`,form)
+            // const res = await axios.put(`http://localhost:5000/api/examinee/change/${id}`,form)  //ye local system ke liye link
+            const res = await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/examinee/change/${id}`,form)
             alert(res.data.message)
         }
         catch(er)

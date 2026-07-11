@@ -19,7 +19,8 @@ const GetExam = () => {
   useEffect(() => {
     const fetchExam = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/exams/exam/${examId}`);
+        // const res = await axios.get(`http://localhost:5000/api/exams/exam/${examId}`);    ye link local sys ke liye
+        const res = await axios.get(`https://online-examination-system-2-q8o7.onrender.com/api/exams/exam/${examId}`);
         const { exam: examData, questions: questionData } = res.data;
         setExam(examData);
         setQuestions(questionData);
@@ -114,7 +115,7 @@ const GetExam = () => {
     if (submitted) return;
 
     try {
-      const res = await axios.post('http://localhost:5000/api/exams/submit-exam', {
+      const res = await axios.post('https://online-examination-system-2-q8o7.onrender.com/api/exams/submit-exam', {     //ye link change hai for sys running
         examId,
         answers,
         email,

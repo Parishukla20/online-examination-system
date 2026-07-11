@@ -7,7 +7,8 @@ const Result = () => {
 
   const handleFetch = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/exams/examinee-result/${userId}`)
+      // const res = await axios.get(`http://localhost:5000/api/exams/examinee-result/${userId}`)   ye local sys ke liye link
+      const res = await axios.get(`https://online-examination-system-2-q8o7.onrender.com/api/exams/examinee-result/${userId}`)
       // Ensure we always have an array to map over
       setData(res.data.message ? (Array.isArray(res.data.message) ? res.data.message : [res.data.message]) : [])
     } catch (err) {

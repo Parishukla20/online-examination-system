@@ -6,7 +6,8 @@ import {Link} from 'react-router' ;
 const Myexams = () => {
     const [data,setData]=useState([]);
     const handlefetch = async ()=>{
-        const res = await axios.get('http://localhost:5000/api/exams/exams')
+        // const res = await axios.get('http://localhost:5000/api/exams/exams')   ye local sys ke liye link
+        const res = await axios.get('https://online-examination-system-2-q8o7.onrender.com/api/exams/exams')
         setData(res.data)
         // console.log(data)
     }
