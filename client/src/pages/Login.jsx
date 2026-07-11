@@ -14,7 +14,7 @@ const Login=()=>{
     e.preventDefault();
     try{
 
-      //const res = await axios.post('http://localhost:5000/api/examinee/login',form)   use for system running
+      // const res = await axios.post('http://localhost:5000/api/examinee/login',form)   //use for system running
       const res = await axios.post('https://online-examination-system-2-q8o7.onrender.com/api/examinee/login',form) //use for render platform running
       
   
@@ -22,7 +22,7 @@ const Login=()=>{
         localStorage.setItem("userEmail",res.data.user.email)
         localStorage.setItem("userId",res.data.user.id)
         localStorage.setItem("UserRole",res.data.user.role);
-        window.location.href='/userDashboard'
+        window.location.href='/userdashboard'
       }
     }catch(er){
       console.log(er)

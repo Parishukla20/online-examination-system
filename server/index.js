@@ -9,7 +9,7 @@ app.use(cors()); //ye data ko backend aur frontend me aane jaane deta hai
 app.use(express.json());
 
 const URL = process.env.MONGO_URI;
-console.log("server updated version2");
+//console.log("server updated version2");
 mongoose.connect(URL)
     .then(()=>{  //ye is liye hai ki future me connect hoga to print krega 
         console.log("MongoDb is connected")
