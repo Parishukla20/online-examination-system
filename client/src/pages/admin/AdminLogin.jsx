@@ -32,7 +32,7 @@ export default function Login() {
     const hasError = Object.keys(errors).length > 0;
     if (!hasError) {
       try {
-        const res = await axios.post('http://localhost:5000/api/admin/login', values);
+        const res = await axios.post('https://online-examination-system-2-q8o7.onrender.com/api/admin/login', values);  //link changed
         if (res.data.message === "Login Successfully") {
           alert("Login Successfully");
           localStorage.setItem('adminEmail', res.data.admin.email);

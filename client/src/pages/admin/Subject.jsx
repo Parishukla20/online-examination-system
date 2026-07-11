@@ -1,182 +1,3 @@
-// import React, { useState, useEffect } from 'react'
-// import axios from 'axios'
-
-// const Subject = () => {
-//   const [form, setForm] = useState({
-//     name: '',
-//     description: ''
-//   })
-
-//   const [id, setId] = useState('')
-//   const [edit, setEdit] = useState(false)
-//   const [data, setData] = useState([])
-
-//   // fetch subjects
-//   const handleFetch = async () => {
-//     try {
-//       const res = await axios.get('http://localhost:5000/api/Subject')
-//       setData(res.data)
-//     } catch (err) {
-//       console.log(err)
-//     }
-//   }
-
-//   useEffect(() => {
-//     handleFetch()
-//   }, [])
-
-//   // handle input change
-//   const handleChange = (e) => {
-//     setForm({ ...form, [e.target.name]: e.target.value })
-//   }
-
-//   // add / update subject
-//   const handleSubmit = async (e) => {
-//     e.preventDefault()
-//     try {
-//       if (edit) {
-//         await axios.put(`http://localhost:5000/api/Subject/${id}`, form)
-//         alert('Updated Successfully')
-//       } else {
-//         await axios.post('http://localhost:5000/api/Subject', form)
-//         alert('Added Successfully')
-//       }
-//       handleFetch(); // refresh table
-//       setForm({ name: '', description: '' }) // reset form
-//       setEdit(false)
-//       setId('')
-//     } catch (er) {
-//       alert('Operation failed, try again later')
-//       console.log(er)
-//     }
-//   }
-
-//   // delete subject
-//   const handleDelete = async (id) => {
-//     if (!window.confirm('Are you sure you want to delete this subject?')) return
-//     try {
-//       await axios.delete(`http://localhost:5000/api/Subject/${id}`)
-//       alert('Subject Deleted Successfully')
-//       handleFetch() // refresh table
-//     } catch (er) {
-//       alert('Sorry Try Again Later')
-//       console.log(er)
-//     }
-//   }
-
-//   // edit subject
-//   const handleEdit = (item) => {
-//     setForm({
-//       name: item.name,
-//       description: item.description
-//     })
-//     setEdit(true)
-//     setId(item._id)
-//   }
-
-//   // cancel editing
-//   const handleCancel = () => {
-//     setForm({ name: '', description: '' })
-//     setEdit(false)
-//     setId('')
-//   }
-
-//   return (
-//     <>
-//       <div className="header">
-//         <h1>Subject Management</h1>
-//       </div>
-
-//       {/* Create / Edit Subject Form */}
-//       <div className="card">
-//         <h3>{edit ? 'Edit Subject' : 'Create New Subject'}</h3>
-//         <form onSubmit={handleSubmit}>
-//           <label>Subject Name</label>
-//           <input
-//             type="text"
-//             name="name"
-//             value={form.name}
-//             onChange={handleChange}
-//             placeholder="Enter Subject name"
-//             required
-//           />
-
-//           <label>Description</label>
-//           <textarea
-//             placeholder="Enter description"
-//             value={form.description}
-//             name="description"
-//             onChange={handleChange}
-//             required
-//           />
-
-//           <div className="buttons">
-//             {edit && (
-//               <button
-//                 type="button"
-//                 className="cancel"
-//                 onClick={handleCancel}
-//               >
-//                 Cancel
-//               </button>
-//             )}
-//             <button type="submit" className="submit">
-//               {edit ? 'Update' : 'Save'}
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-
-//       {/* Subjects Table */}
-//       <div className="card">
-//         <h4>All Subjects</h4>
-//         <table>
-//           <thead>
-//             <tr>
-//               <th>No.</th>
-//               <th>Name</th>
-//               <th>Description</th>
-//               <th>Action</th> {/* ✅ Added Action Column */}
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {data.map((item, i) => (
-//               <tr key={item._id}>
-//                 <td>{i + 1}</td>
-//                 <td>{item.name}</td>
-//                 <td>{item.description}</td>
-//                 <td>
-//                   {/* ✅ Added Edit + Delete Buttons */}
-//                   <button
-//                     className="btn btn-success"
-//                     onClick={() => handleEdit(item)}
-//                   >
-//                     Edit
-//                   </button>
-//                   &nbsp;
-//                   <button
-//                     className="btn btn-danger"
-//                     onClick={() => handleDelete(item._id)}
-//                   >
-//                     Delete
-//                   </button>
-//                 </td>
-//               </tr>
-//             ))}
-//             {data.length === 0 && (
-//               <tr>
-//                 <td colSpan="4">No subjects found</td>
-//               </tr>
-//             )}
-//           </tbody>
-//         </table>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default Subject
-
 import React, { useState, useEffect } from "react";
 import "./Subject.css";
 import axios from "axios";
@@ -190,7 +11,7 @@ export default function Subject() {
   // Fetch all subjects
   const fetchSubjects = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/Subject");
+      const res = await axios.get("https://online-examination-system-2-q8o7.onrender.com/api/Subject");   //link changed
       setSubjects(res.data);
     } catch (err) {
       console.error("Error fetching subjects:", err);
@@ -209,14 +30,14 @@ export default function Subject() {
     try {
       if (editId) {
         // update
-        await axios.put(`http://localhost:5000/api/Subject/${editId}`, {
+        await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/Subject/${editId}`, {   //link changed
           name,
           description,
         });
         alert("Subject Updated Successfully");
       } else {
         // add
-        await axios.post("http://localhost:5000/api/Subject", {
+        await axios.post("https://online-examination-system-2-q8o7.onrender.com/api/Subject", {    //link changed
           name,
           description,
         });
@@ -237,7 +58,7 @@ export default function Subject() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this subject?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/Subject/${id}`);
+      await axios.delete(`https://online-examination-system-2-q8o7.onrender.com/api/Subject/${id}`);   //link changed
       alert("Subject Deleted Successfully");
       fetchSubjects();
     } catch (err) {

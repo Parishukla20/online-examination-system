@@ -4,7 +4,7 @@ import axios from 'axios';
 const ReportGeneration = () => {
     const [data, setData] = useState([]);
     const handlefetch = async () => {
-        const res = await axios.get('http://localhost:5000/api/exams/report');
+        const res = await axios.get('https://online-examination-system-2-q8o7.onrender.com/api/exams/report');    //link changed
         console.log(res.data);
         setData(Array.isArray(res.data) ? res.data : [res.data
         ]);

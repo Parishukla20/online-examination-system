@@ -26,12 +26,12 @@ const QuestionBank = () => {
     e.preventDefault();
     try {
       if (editform) {
-        const res = await axios.put(`http://localhost:5000/api/question/${id.id}`, formData);
+        const res = await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/question/${id.id}`, formData);  //link changed
         if (res) {
           alert('Question updated successfully');
         }
       } else {
-        const res = await axios.post('http://localhost:5000/api/question', formData);
+        const res = await axios.post('https://online-examination-system-2-q8o7.onrender.com/api/question', formData);    //link changed
         if (res) {
           alert('Question added successfully');
         }
@@ -56,10 +56,10 @@ const QuestionBank = () => {
   };
 
   const handlefetch = async () => {
-    const res = await axios.get('http://localhost:5000/api/question');
+    const res = await axios.get('https://online-examination-system-2-q8o7.onrender.com/api/question');    //link changed
     setData(res.data.data);
 
-    const res1 = await axios.get('http://localhost:5000/api/subject');
+    const res1 = await axios.get('https://online-examination-system-2-q8o7.onrender.com/api/subject');     //link changed
     setSubjects(res1.data);
   };
 
@@ -69,7 +69,7 @@ const QuestionBank = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/question/${id}`);
+      const res = await axios.delete(`https://online-examination-system-2-q8o7.onrender.com/api/question/${id}`);  //link changed
       if (res) {
         alert("Deleted Successfully");
         handlefetch();

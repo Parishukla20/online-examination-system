@@ -18,7 +18,7 @@ export default function AdminDashboard({children}){
   }
    const[data,setData]=useState([]);
   const handlefetch = async()=>{
-    const res = await axios.get('http://localhost:5000/api/admindashboard/')
+    const res = await axios.get('https://online-examination-system-2-q8o7.onrender.com/api/admindashboard/')     //link changed
     setData(res.Data);
   }
   useEffect(()=>{

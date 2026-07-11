@@ -7,7 +7,7 @@ const MessageReply = () => {
 
   const fetchAll = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/message/all');
+      const res = await axios.get('https://online-examination-system-2-q8o7.onrender.com/api/message/all');   //link changed
       setMessages(res.data.message || []);
     } catch (err) {
       console.error('Error fetching messages for admin:', err);
@@ -24,7 +24,7 @@ const MessageReply = () => {
     const answer = (replyInputs[id] || '').trim();
     if (!answer) return alert('Please type a reply.');
     try {
-      await axios.put(`http://localhost:5000/api/message/reply/${id}`, {
+      await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/message/reply/${id}`, {   //link changed
         answer,
         role: 'admin'
       });
@@ -39,7 +39,7 @@ const MessageReply = () => {
     const newReply = prompt('Edit reply:', currentReply || '');
     if (newReply === null) return;
     try {
-      await axios.put(`http://localhost:5000/api/message/reply/${id}`, {
+      await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/message/reply/${id}`, {   //link changed
         answer: newReply,
         role: 'admin'
       });
@@ -52,7 +52,7 @@ const MessageReply = () => {
   const deleteByAdmin = async (id) => {
     if (!window.confirm('Delete this reply?')) return;
     try {
-      await axios.put(`http://localhost:5000/api/message/delete/${id}`, {
+      await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/message/delete/${id}`, {    //link changed
         role: 'admin'
       });
       fetchAll();

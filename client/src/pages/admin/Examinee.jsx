@@ -19,12 +19,12 @@ const Examinee = () => {
   }, []);
 
   const handlefetch = async () => {
-    const res = await axios.get('http://localhost:5000/api/examinee');
+    const res = await axios.get('https://online-examination-system-2-q8o7.onrender.com/api/examinee');  //link changed
     setData(res.data);
   };
 
   const handleDelete = async (id) => {
-    const res = await axios.delete(`http://localhost:5000/api/examinee/${id}`);
+    const res = await axios.delete(`https://online-examination-system-2-q8o7.onrender.com/api/examinee/${id}`);   //link changed
     if (res) {
       alert("Deleted Successfully");
     } else {
@@ -56,7 +56,7 @@ const Examinee = () => {
     e.preventDefault();
     if (!editingId) return;
     try {
-      await axios.put(`http://localhost:5000/api/examinee/${editingId}`, form);
+      await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/examinee/${editingId}`, form);   //link changed
       alert('Examinee Updated Successfully');
       setForm({
         name: '',

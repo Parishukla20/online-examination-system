@@ -27,9 +27,9 @@ const Examination = () => {
   const fetchData = async () => {
     try {
       const [subjectRes, sessionRes,examRes] = await Promise.all([
-        axios.get(`http://localhost:5000/api/Subject`),
-        axios.get(`http://localhost:5000/api/session`),
-        axios.get(`http://localhost:5000/api/exams/exams`),
+        axios.get(`https://online-examination-system-2-q8o7.onrender.com/api/Subject`),    //link changed
+        axios.get(`https://online-examination-system-2-q8o7.onrender.com/api/session`),    //link changed
+        axios.get(`https://online-examination-system-2-q8o7.onrender.com/api/exams/exams`),  //link changed
 
       ]);
       setSubjects(subjectRes.data || []);
@@ -113,10 +113,10 @@ const Examination = () => {
 
     try {
       if (isEditing && editingExamId) {
-        await axios.put(`http://localhost:5000/api/exams/${editingExamId}`, formData);
+        await axios.put(`https://online-examination-system-2-q8o7.onrender.com/api/exams/${editingExamId}`, formData);  //link changed
         alert('Exam Updated Successfully');
       } else {
-        await axios.post(`http://localhost:5000/api/exams`, formData);
+        await axios.post(`https://online-examination-system-2-q8o7.onrender.com/api/exams`, formData);    //link changed
         alert('Exam Created Successfully');
       }
 
@@ -141,7 +141,7 @@ const Examination = () => {
   };
 
   const handleDelete = async (id) => {
-    const res = await axios.delete(`http://localhost:5000/api/exams/${id}`);
+    const res = await axios.delete(`https://online-examination-system-2-q8o7.onrender.com/api/exams/${id}`);    //link changed
     if (res) {
       alert('Deleted Successfully');
       fetchData();
