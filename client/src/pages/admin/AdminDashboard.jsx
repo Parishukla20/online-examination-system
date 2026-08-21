@@ -3,27 +3,27 @@ import { Outlet } from 'react-router';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function AdminDashboard({children}){
+export default function AdminDashboard({ children }) {
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour < 12) return 'Good Morning!'
     if (hour < 17) return 'Good Afternoon!'
     return 'Good Evening!'
   }
-  const handlelogout=()=>{
+  const handlelogout = () => {
     localStorage.removeItem('adminEmail')
     localStorage.removeItem('Role')
     localStorage.removeItem('id')
-    window.location.href='/'
+    window.location.href = '/'
   }
-   const[data,setData]=useState([]);
-  const handlefetch = async()=>{
+  const [data, setData] = useState([]);
+  const handlefetch = async () => {
     const res = await axios.get('https://online-examination-system-2-q8o7.onrender.com/api/admindashboard/')     //link changed
     setData(res.Data);
   }
-  useEffect(()=>{
+  useEffect(() => {
     handlefetch()
-  },[])
+  }, [])
   console.log(data)
   return (
     <div className="admin-layout">
@@ -37,14 +37,14 @@ export default function AdminDashboard({children}){
           <a href="/admindashboard/questionbank">Question Bank</a>
           <a href="/admindashboard/reportgeneration">Report Generation</a>
           <a href="/admindashboard/adminchangepassword">Change Password</a>
-          <a href="/adminlogin" onClick={()=>{{handlelogout()}}}>Logout</a>
+          <a href="/adminlogin" onClick={() => { { handlelogout() } }}>Logout</a>
           <a href="/admindashboard/messagereply">Message</a>
         </nav>
       </aside>
 
       {/* Main Content */}
       <div className="admin-main">
-       
+
         {/* Navbar */}
         <header className="admin-navbar">
           <div>
@@ -55,7 +55,7 @@ export default function AdminDashboard({children}){
 
         {/* Page Content */}
         <main className="admin-content">{children}
-           <Outlet />
+          <Outlet />
         </main>
       </div>
     </div>
